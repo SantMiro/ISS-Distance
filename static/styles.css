@@ -1,0 +1,64 @@
+body {
+    background-color: #FFF8F3; /* Change this to your desired background color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+
+header {
+    width: 100%;
+    text-align: center;
+    background-color:  #405D72;  /* Adjust the color and thickness of the line */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #FFF8F3;
+}
+
+
+.content {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto; /* Adjust as needed */
+}
+
+.left-column {
+    flex: 1; /* Take up all available space in the left column */
+    padding: 0 20px; /* Adjust padding for spacing */
+}
+
+.right-column {
+    flex: 1; /* Take up all available space in the right column */
+    padding: 0 20px; /* Adjust padding for spacing */
+}
+
+.form-group {
+    margin-bottom: 10px; /* Adjust spacing between form groups */
+}
+
+form {
+    background-color: #F7E7DC; /* Form background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.right-column h2 {
+    color: #405D72; /* Title color for the right column */
+}
+
+.right-column p {
+    color: #555; /* Text color for the right column */
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}

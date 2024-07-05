@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ISS Distance Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        async function fetchISSLocation() {
+            try {
+                let response = await fetch('http://api.open-notify.org/iss-now.json');
+                let data = await response.json();
+                document.getElementById('iss_latitude').value = data.iss_position.latitude;
+                document.getElementById('iss_longitude').value = data.iss_position.longitude;
+            } catch (error) {
+                console.error('Error fetching ISS location:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchISSLocation);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>International Space Station Distance Calculator</h1>
+    </header>
+    <div class="content">
+        <div class="left-column">
+            <form action="/calculate" method="post">
+                <label for="street">Street:    </label>
+                <input type="text" id="street" name="street"><br><br>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city"><br><br>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state"><br><br>
+                <label for="postal_code">Postal Code:</label>
+                <input type="text" id="postal_code" name="postal_code"><br><br>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country"><br><br>
+                <input type="hidden" id="iss_latitude" name="iss_latitude">
+                <input type="hidden" id="iss_longitude" name="iss_longitude">
+                <input type="submit" value="Calculate">
+            </form>
+        </div>
+        <div class="right-column">
+            <h2>What does this website do?</h2>
+            <p>This website calculates the distance between your location and the International Space Station (ISS) projected on the Earth's surface, based on the address provided.</p>
+            <p>You may leave some unknown parts of the address blank, but the precision of the calculation may decrease.</p>
+            <p>The distance is calculated by obtaining the ISS current coordinates through its own <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/">API</a>, transform the provided address to coordinates with googlemaps, and finally calculate the distance using <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine</a> formula.</p>
+        </div>
+    </div>
+</body>
+</html>

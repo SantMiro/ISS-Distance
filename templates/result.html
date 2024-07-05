@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ISS Distance Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>ISS Distance Result</h1>
+    </header>
+        <div class="content">
+            
+            <p>{{ location_info }}</p>
+            <p>{{ route_info }}</p>
+            <p>Your current distance to the ISS is: {{ distance }} km.</p>
+            <a href="/">Back</a>
+        </div>
+
+</body>
+</html>
