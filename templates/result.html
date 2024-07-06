@@ -7,15 +7,27 @@
 </head>
 <body>
     <header>
-        <h1>ISS Distance Result</h1>
+        <h1>International Space Station Distance Calculator</h1>
     </header>
         <div class="content">
-            
-            <p>{{ location_info }}</p>
-            <p>{{ route_info }}</p>
-            <p>Your current distance to the ISS is: {{ distance }} km.</p>
-            <a href="/">Back</a>
+            <div class="left-column">
+                <form>
+                    <h2>Result:</h2>
+                    <p>Your current distance to the ISS is: {{ distance }}km.</p>
+                    <p>{{ location_info }}</p>
+                    <p>{{ route_info }}</p>
+                    <a href="/">Back</a>
+                </form>
+            </div>
+            <div class="right-column">
+                <h2>What does this website do?</h2>
+                <p>This website calculates the distance between your location and the International Space Station (ISS) projected on the Earth's surface, based on the address provided.</p>
+                <p>You may leave some unknown parts of the address blank, but the precision of the calculation may decrease.</p>
+                <p>The distance is calculated by obtaining the ISS current coordinates through its own <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/">API</a>, transform the provided address to coordinates with googlemaps, and finally calculate the distance using <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine</a> formula.</p>
+            </div>
         </div>
-
+    <footer class="footer">
+        <p>&copy; 2024 <a href='https://github.com/SantMiro/ISS-Distance'>Santiago Miro</a></p>
+    </footer>
 </body>
 </html>

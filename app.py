@@ -56,7 +56,7 @@ def calculate():
     lat2, long2 = data['origin_addresses'][0].split(',')
     distance = haversine.haversine(float(lat1), float(long1), float(lat2), float(long2))
 
-    location_info = f'The space station is currently over {formatted_address_components[-1]}.' if len(formatted_address_components) > 1 else 'The Space Station is currently over the Ocean. Try again in a few minutes.'
+    location_info = f'The Space Station is currently flying over {formatted_address_components[-1]}.' if len(formatted_address_components) > 1 else 'The Space Station is currently flying over the Ocean. Try again in a few minutes.'
 
     route_info = 'There is not a driving route to its current position.' if data['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS' else ''
     
