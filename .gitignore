@@ -129,7 +129,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+app.yaml
+.gcloudignore
 # Spyder project settings
 .spyderproject
 .spyproject

@@ -1,22 +1,7 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>ISS Distance Calculator</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <script>
-        async function fetchISSLocation() {
-            try {
-                let response = await fetch('http://api.open-notify.org/iss-now.json');
-                let data = await response.json();
-                document.getElementById('iss_latitude').value = data.iss_position.latitude;
-                document.getElementById('iss_longitude').value = data.iss_position.longitude;
-            } catch (error) {
-                console.error('Error fetching ISS location:', error);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', fetchISSLocation);
-    </script>
 </head>
 <body>
     <header>
@@ -25,7 +10,7 @@
     <div class="content">
         <div class="left-column">
             <form action="/calculate" method="post">
-                <label for="street">Street:    </label>
+                <label for="street">Street:</label>
                 <input type="text" id="street" name="street"><br><br>
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city"><br><br>
@@ -35,8 +20,6 @@
                 <input type="text" id="postal_code" name="postal_code"><br><br>
                 <label for="country">Country:</label>
                 <input type="text" id="country" name="country"><br><br>
-                <input type="hidden" id="iss_latitude" name="iss_latitude">
-                <input type="hidden" id="iss_longitude" name="iss_longitude">
                 <input type="submit" value="Calculate">
             </form>
         </div>

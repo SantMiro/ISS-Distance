@@ -39,8 +39,12 @@ def calculate():
     formatted_address_components = []
     gmaps = googlemaps.Client(key=API_KEY)
 
-    latitude = float(request.form['iss_latitude'])
-    longitude = float(request.form['iss_longitude'])
+
+    iss_url = 'http://api.open-notify.org/iss-now.json'
+    response = requests.get(iss_url)
+    data = response.json()
+    latitude = float(data['iss_position']['latitude'])
+    longitude = float(data['iss_position']['longitude'])
     reverse_geocode_result = gmaps.reverse_geocode((latitude, longitude))
 
     for result in reverse_geocode_result:
